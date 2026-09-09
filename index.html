@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopee購物優惠活動</title>
+  <!-- ====== 網址分享預覽資訊 ====== -->
+  <meta name="description" content="Shopee 限時購物優惠活動，限量優惠券開放領取中，立即查看活動詳情與優惠資訊。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shopee 限時購物優惠活動">
+  <meta property="og:description" content="限時優惠券開放領取中，立即查看 Shopee 購物優惠活動詳情。">
+  <meta property="og:image" content="./preview.png">
+  <meta property="og:url" content="./">
+  <meta property="og:site_name" content="Shopee 購物優惠活動">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shopee 限時購物優惠活動">
+  <meta name="twitter:description" content="限時優惠券開放領取中，立即查看 Shopee 購物優惠活動詳情。">
+  <meta name="twitter:image" content="./preview.png">
+<style>
+:root{
+  --orange:#ee4d2d;
+  --orange2:#ff7330;
+  --red:#ee4d2d;
+  --cream:#fff8ef;
+  --text:#4b3028;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif}
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:22px 14px;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 18% 12%,rgba(255,255,255,.28),transparent 22%),
+    radial-gradient(circle at 82% 20%,rgba(255,230,180,.22),transparent 24%),
+    radial-gradient(circle at 50% 90%,rgba(220,35,20,.35),transparent 35%),
+    linear-gradient(135deg,#ff6a00 0%,#ee4d2d 52%,#d93620 100%);
+}
+body:before,body:after{
+  content:"";
+  position:fixed;
+  border-radius:50%;
+  filter:blur(2px);
+  pointer-events:none;
+}
+body:before{
+  width:230px;height:230px;left:-120px;bottom:5%;
+  background:rgba(255,197,70,.25);
+}
+body:after{
+  width:280px;height:280px;right:-150px;top:5%;
+  background:rgba(255,255,255,.12);
+}
+.page{
+  width:min(100%,430px);
+  position:relative;
+  z-index:1;
+}
+.panel{
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  padding:28px 20px 22px;
+  background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(255,249,241,.98));
+  box-shadow:0 25px 70px rgba(83,20,5,.32);
+}
+.spark{
+  position:absolute;
+  color:#ffd76a;
+  font-size:22px;
+  animation:float 3s ease-in-out infinite;
+}
+.s1{left:18px;top:65px}.s2{right:22px;top:120px;animation-delay:.8s}.s3{left:42px;bottom:170px;animation-delay:1.3s}
+@keyframes float{50%{transform:translateY(-8px) rotate(8deg);opacity:.7}}
+.brand{
+  text-align:center;
+  color:var(--red);
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:.8px;
+}
+h1{
+  margin:7px 0 0;
+  text-align:center;
+  color:#c82f13;
+  font-size:30px;
+  line-height:1.15;
+  font-weight:950;
+  text-shadow:0 2px 0 #fff;
+}
+.subtitle{
+  display:table;
+  margin:12px auto 0;
+  padding:7px 18px;
+  border:1px solid #ffb04a;
+  border-radius:999px;
+  color:#fff;
+  background:linear-gradient(90deg,#ff7a17,#e73d12);
+  box-shadow:0 7px 18px rgba(230,67,18,.22);
+  font-weight:800;
+  font-size:13px;
+}
+.coupon{
+  position:relative;
+  margin:24px 2px 18px;
+  padding:22px 18px 17px;
+  border-radius:20px;
+  background:linear-gradient(145deg,#fffdf9,#fff0df);
+  border:1px solid #ffd3ad;
+  box-shadow:0 16px 30px rgba(151,59,14,.16);
+  overflow:hidden;
+}
+.coupon:before,.coupon:after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:26px;height:26px;
+  border-radius:50%;
+  background:#ff6a18;
+  transform:translateY(-50%);
+}
+.coupon:before{left:-14px}.coupon:after{right:-14px}
+.coupon-label{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:9px;
+  background:linear-gradient(135deg,#ff4a1b,#dc2d10);
+  color:#fff;
+  font-size:13px;
+  font-weight:900;
+  box-shadow:0 6px 12px rgba(220,45,16,.2);
+}
+.amount{
+  margin:12px 0 8px;
+  color:#e53614;
+  font-size:48px;
+  line-height:1;
+  font-weight:1000;
+  letter-spacing:-2px;
+}
+.amount small{font-size:22px;letter-spacing:0}
+.dash{border-top:1px dashed #efb999;margin:16px 0}
+.details{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.detail{
+  padding:9px 8px;
+  border-radius:12px;
+  background:rgba(255,255,255,.72);
+}
+.detail b{display:block;color:#8b5542;font-size:11px;margin-bottom:3px}
+.detail span{font-size:12px;font-weight:800;color:var(--text)}
+.cta{
+  position:relative;
+  width:100%;
+  border:0;
+  border-radius:16px;
+  padding:16px 18px;
+  color:#fff;
+  background:linear-gradient(180deg,#ff6a19,#e83710);
+  box-shadow:0 9px 0 #bc260e,0 16px 28px rgba(206,50,10,.28);
+  font-size:18px;
+  font-weight:950;
+  cursor:pointer;
+  transition:.15s;
+}
+.cta:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.cta:active{transform:translateY(7px);box-shadow:0 2px 0 #bc260e,0 8px 16px rgba(206,50,10,.22)}
+.arrow{float:right;font-size:24px;line-height:18px}
+.note{text-align:center;color:#a38d84;font-size:10px;margin:16px 0 0}
+.modal{
+  position:fixed;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  padding:18px;
+  background:rgba(48,17,7,.66);
+  backdrop-filter:blur(9px);
+  opacity:0;visibility:hidden;
+  transition:.22s ease;
+  z-index:10;
+}
+.modal.show{opacity:1;visibility:visible}
+.modal-card{
+  width:min(100%,370px);
+  position:relative;
+  padding:29px 23px 23px;
+  border-radius:28px;
+  text-align:center;
+  background:linear-gradient(180deg,#fffefa,#fff4e9);
+  box-shadow:0 28px 70px rgba(0,0,0,.35);
+  transform:translateY(18px) scale(.96);
+  transition:.24s cubic-bezier(.2,.8,.2,1);
+}
+.modal.show .modal-card{transform:translateY(0) scale(1)}
+.close{
+  position:absolute;right:14px;top:12px;
+  width:34px;height:34px;border:0;border-radius:50%;
+  background:#f7e8dc;color:#7e6258;font-size:22px;cursor:pointer;
+}
+.gift{
+  width:62px;height:62px;margin:-2px auto 13px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:20px;
+  background:linear-gradient(145deg,#ff8b2a,#f04a12);
+  box-shadow:0 10px 20px rgba(238,70,14,.25);
+  font-size:32px;
+  animation:gift 2.2s ease-in-out infinite;
+}
+@keyframes gift{50%{transform:translateY(-5px) rotate(2deg)}}
+.modal h2{margin:0;color:#dc3b16;font-size:22px}
+.modal p{margin:12px 0 20px;color:#66534c;font-size:13px;line-height:1.8}
+.modal .primary,.modal .secondary{
+  width:100%;border:0;border-radius:14px;padding:14px;
+  font-size:15px;font-weight:900;cursor:pointer;
+}
+.primary{color:#fff;background:linear-gradient(90deg,#ff6b19,#e73a12);box-shadow:0 8px 18px rgba(225,57,15,.2)}
+.secondary{margin-top:10px;background:#f4ece7;color:#735e55}
+@media(max-width:380px){
+  .panel{padding:24px 16px 20px}
+  h1{font-size:27px}.amount{font-size:42px}
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+  <section class="panel">
+    <span class="spark s1">✦</span>
+    <span class="spark s2">✦</span>
+    <span class="spark s3">✧</span>
+
+    <div class="brand">Shopee 購物優惠活動</div>
+    <h1>Shopee 限時購物優惠</h1>
+    <div class="subtitle">限時優惠・每日限量開放</div>
+
+    <article class="coupon">
+      <span class="coupon-label">Shopee 限時購物券</span>
+      <div class="amount"><small>折</small> $600</div>
+      <div class="dash"></div>
+
+      <div class="details">
+        <div class="detail">
+          <b>使用條件</b>
+          <span>指定商品滿額可用</span>
+        </div>
+        <div class="detail">
+          <b>有效期限</b>
+          <span>限時活動期間</span>
+        </div>
+      </div>
+    </article>
+
+    <button class="cta" id="openModal">
+      立即查看優惠券
+      <span class="arrow">›</span>
+    </button>
+
+    <p class="note">※ 活動詳情及使用規則請依實際活動頁面為準</p>
+  </section>
+</main>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <button class="close" id="closeModal" aria-label="關閉">×</button>
+    <div class="gift">🎁</div>
+    <h2>Shopee 優惠領取說明</h2>
+    <p>
+      請先確認活動資格及優惠券使用條件，優惠內容與使用規則依活動頁面公告為準。
+      點擊下方按鈕後，將前往 Shopee 指定活動頁面查看詳細資訊。
+    </p>
+
+    <button class="primary" id="goClaim">前往 Shopee 活動頁面　›</button>
+    <button class="secondary" id="back">返回</button>
+  </div>
+</div>
+
+<script>
+/* ====== 請在這裡填入你的合法活動頁面網址 ====== */
+const CLAIM_URL = "https://lin.ee/xf5zvL4";
+
+const modal = document.getElementById("modal");
+const openModal = document.getElementById("openModal");
+const closeModal = document.getElementById("closeModal");
+const back = document.getElementById("back");
+const goClaim = document.getElementById("goClaim");
+
+function showModal(){
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden","false");
+  document.body.style.overflow = "hidden";
+}
+function hideModal(){
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden","true");
+  document.body.style.overflow = "";
+}
+
+openModal.addEventListener("click", showModal);
+closeModal.addEventListener("click", hideModal);
+back.addEventListener("click", hideModal);
+
+modal.addEventListener("click", e => {
+  if(e.target === modal) hideModal();
+});
+
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape") hideModal();
+});
+
+goClaim.addEventListener("click", () => {
+  window.location.href = CLAIM_URL;
+});
+</script>
+</body>
+</html>
